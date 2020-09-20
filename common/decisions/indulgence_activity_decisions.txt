@@ -1,14 +1,9 @@
 ﻿start_indulgence_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
 
 	ai_check_interval = 0
 
-	cost = {
-		prestige = {
-			250
-		}
-	}
-
+	cost = { piety = 250 }
 	cooldown = { years = 5 }
 
 	is_shown = {
@@ -28,41 +23,40 @@
 			}
 		}
 
-		custom_tooltip = line_break
-		custom_tooltip = start_indulgence_decision
+		# Stress loss
+		if = {
+			limit = {
+				has_trait = zealous
+			}
+			custom_tooltip = start_indulgence_decision_stress_zealous
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_trait = greedy
+					has_trait = arrogant
+					has_trait = gluttonous
+					has_trait = cynical
+					has_trait = arbitrary
+				}
+			}
 
-		#custom_tooltip = line_break
-		#custom_tooltip = start_hunt_decision_tt_header
-		custom_tooltip = start_hunt_decision_prestige
-		#custom_tooltip = start_hunt_decision_stress
-		#custom_tooltip = line_break
+			stress_impact = {
+				base = indulgence_event_standard_stress_loss
+				greedy = indulgence_event_standard_trait_stress_loss
+				arrogant = indulgence_event_standard_trait_stress_loss
+				gluttonous = indulgence_event_standard_trait_stress_loss
+				cynical = indulgence_event_standard_trait_stress_loss
+				arbitraty = indulgence_event_standard_trait_stress_loss
+			}
+		}
+		else {
+			stress_impact = {
+				base = indulgence_event_standard_stress_loss
+			}
+		}
 
-		#spawn_activity = {
-		#	on_action = activity_indulgence
-		#	owner = root
-		#}
+		custom_tooltip = start_indulgence_decision_gold_prestige
+		
 	}
-	
-	#ai_potential = {
-	#	short_term_gold > standard_activity_cost
-	#}
-
-	#ai_will_do = {
-		#base = 35
-	#	base = 0
-
-	#	ai_value_modifier = {
-	#		ai_energy = 1
-	#		ai_greed = -0.5
-	#		ai_compassion = -0.5
-	#	}
-
-	#	modifier = {
-	#		add = 10
-	#		has_trait_rank = {
-	#			trait = education_martial
-	#			rank > 0
-	#		}
-	#	}
-	#}
 }

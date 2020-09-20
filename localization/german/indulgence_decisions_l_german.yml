@@ -1,8 +1,11 @@
 ﻿l_german:
- start_indulgence_decision: "Ablasshandel beginnen"
- start_indulgence_decision_desc: "Ablasshandel Beschreibung Test"
+ start_indulgence_decision: "Ablasshandel"
+ start_indulgence_decision_desc: "Text unterhalb des Ablasshandel Decision Bildes"
  start_indulgence_decision_tooltip: "Ein Ablasshandel wird begonnen"
+ start_indulgence_decision_gold_prestige: "Ihr habt die Möglichkeit Euer [gold|E] oder [prestige|E] zu erhöhen"
+ start_indulgence_decision_stress_zealous: "#N Ihr werdet keine [stress|E] verlieren, da Ihr [GetTrait('cynical').GetName(GetPlayer)] seid#!"
  start_indulgence_decision_confirm: "ablassen!"
+ activity_indulgence: "Ablasshandel"
 
  indulgence_header: "Ablasshandel:"
  indulgence.1001.t: "$indulgence_header$ Der Handel beginnt"

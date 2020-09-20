@@ -1,0 +1,2 @@
+﻿indulgence_event_standard_stress_loss = -15
+indulgence_event_standard_trait_stress_loss = -10
