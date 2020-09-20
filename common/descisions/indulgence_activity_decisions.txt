@@ -1,0 +1,68 @@
+﻿start_indulgence_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_activity.dds"
+
+	ai_check_interval = 0
+
+	cost = {
+		prestige = {
+			250
+		}
+	}
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		is_ruler = yes
+		#glaubensoberhaupt 
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	effect = {
+		capital_province = {
+			spawn_activity = {
+				type = activity_indulgence
+				owner = root
+			}
+		}
+
+		custom_tooltip = line_break
+		custom_tooltip = start_indulgence_decision
+
+		#custom_tooltip = line_break
+		#custom_tooltip = start_hunt_decision_tt_header
+		custom_tooltip = start_hunt_decision_prestige
+		#custom_tooltip = start_hunt_decision_stress
+		#custom_tooltip = line_break
+
+		#spawn_activity = {
+		#	on_action = activity_indulgence
+		#	owner = root
+		#}
+	}
+	
+	#ai_potential = {
+	#	short_term_gold > standard_activity_cost
+	#}
+
+	#ai_will_do = {
+		#base = 35
+	#	base = 0
+
+	#	ai_value_modifier = {
+	#		ai_energy = 1
+	#		ai_greed = -0.5
+	#		ai_compassion = -0.5
+	#	}
+
+	#	modifier = {
+	#		add = 10
+	#		has_trait_rank = {
+	#			trait = education_martial
+	#			rank > 0
+	#		}
+	#	}
+	#}
+}

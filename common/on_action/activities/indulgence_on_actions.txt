@@ -1,0 +1,11 @@
+﻿indulgence_start_events = {
+	events = {
+		indulgence.0005
+	}
+}
+
+indulgence_random_pulse = {
+	random_events = {
+		100 = indulgence.1001
+	}
+}

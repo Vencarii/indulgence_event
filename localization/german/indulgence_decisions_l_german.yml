@@ -1,0 +1,11 @@
+﻿l_german:
+ start_indulgence_decision: "Ablasshandel beginnen"
+ start_indulgence_decision_desc: "Ablasshandel Beschreibung Test"
+ start_indulgence_decision_tooltip: "Ein Ablasshandel wird begonnen"
+ start_indulgence_decision_confirm: "ablassen!"
+
+ indulgence_header: "Ablasshandel:"
+ indulgence.1001.t: "$indulgence_header$ Der Handel beginnt"
+ indulgence.1001.desc: "Du überredest einen Gläubigen zum Ablasshandel"
+ indulgence.1001.a: "gold option"
+ indulgence.1001.b: "prestige option"

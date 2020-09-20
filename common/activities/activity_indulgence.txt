@@ -1,0 +1,96 @@
+﻿activity_indulgence =  {
+	expiration_days = 100
+	solo = yes
+	#frame = 1
+	#color = { 0.253906 0.867188 0.105469 1 }
+
+	on_spawn = {
+		invite_character_to_activity = activity_owner
+		accept_invitation_for_character = activity_owner
+
+		#Save scopes
+		#activity_owner = {
+			#if = {
+			#	limit = {
+			#		any_courtier_or_guest = {
+			#			is_available_healthy_ai_adult = yes
+			#		}
+			#	}
+			#	random_courtier = { #To make it more likely that the list EXISTS so that no errors are generated when checking for the size
+			#		limit = {
+			#			is_available_healthy_ai_adult = yes
+			#		}
+			#		scope:activity = {
+			#			add_to_variable_list = {
+			#				name = potential_hunt_participants
+			#				target = prev
+			#			}
+			#		}
+			#	}
+			#	every_courtier_or_guest = {
+			#		limit = {
+			#			is_available_healthy_ai_adult = yes
+			#			OR = {
+			#				is_heir_of = scope:activity.activity_owner
+			#				has_relation_rival = scope:activity.activity_owner
+			#				has_relation_lover = scope:activity.activity_owner
+			#				has_relation_friend = scope:activity.activity_owner
+			#			}
+			#			scope:activity = {
+			#				NOT = {
+			#					is_target_in_variable_list = {
+			#						name = potential_hunt_participants
+			#						target = prev
+			#					}
+			#				}
+			#			}
+			#		}
+			#		scope:activity = {
+			#			add_to_variable_list = {
+			#				name = potential_hunt_participants
+			#				target = prev
+			#			}
+			#		}
+			#	}
+			#}
+		#}
+		activity_owner = {
+			trigger_event = {
+				on_action = indulgence_start_events
+			}
+		}
+	}
+	on_activate = {
+		activity_owner = {
+			trigger_event = {
+				on_action = indulgence_random_pulse
+				days = { 10 20 }
+			}
+		}
+	}
+	on_complete = {
+		activity_owner = {
+			remove_variable = indulgence_piety_lost
+			remove_variable = indulgence_gold_gained
+			remove_variable = indulgence_prestige_gained
+			remove_character_flag = gold_indulgence
+			remove_character_flag = prestige_indulgence
+
+			#target_weight_modifier_effect = {
+			#	VALUE = hunt_weight_modifier_value
+			#}
+		}
+		#every_in_list = {
+		#	variable = potential_hunt_participants
+		#	limit = {
+		#		is_alive = yes
+		#	}
+		#	target_weight_modifier_effect = {
+		#		VALUE = hunt_weight_modifier_value
+		#	}
+		#}
+	}
+	on_expire = {
+
+	}
+}

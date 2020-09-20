@@ -1,0 +1,76 @@
+﻿# More Events mod - indulgence activity
+# Indulgence activity to exchange piety to gold/prestige every few years
+
+###########
+## Ideen:
+##  - mit geringer Wahrscheinlichkeit bekommt der Spieler die Möglichkeit einen vollkommenen Ablass zu handeln anstatt eines teilweise.
+##	  das gibt dann die möglichkeit nicht nur 250 piety zu tauschen, sondern 750
+##  - es kann sein, dass der reichsbischof etwas mitbekommt, das wirkt negativ (verringerte meinung vom bischof, weniger piety umwandlung, evtl. schwaches druckmittel)
+##  - mit geringer wahrscheinlichkeit kann es sein, dass auch der ehepartner des ablass-"kunden" ablass leisten möchte = höhere umwandlung, mehr gold/prestige
+##  
+##  
+##
+##  - es muss zufällig jemand im diplo-range gewählt werden, der den selben glauben hat
+##  - die aktivität kann nur ausgeführt werden, wenn man das glaubensoberhaupt ist
+
+namespace = indulgence
+
+# config variables
+indulgence.0005 = {
+	hidden = yes
+
+	immediate = {
+		set_variable = {
+			name = indulgence_piety_lost
+			value = 0
+		}
+
+		set_variable = {
+			name = indulgence_gold_gained
+			value = 0
+		}
+
+		set_variable = {
+			name = indulgence_prestige_gained
+			value = 0
+		}
+	}
+}
+
+# Choice to get gold or prestige from the indulgence
+indulgence.1001 = {
+	type = character_event
+	title = indulgence.1001.t
+	desc = indulgence.1001.desc
+	theme = indulgence_activity
+
+	right_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	# nur für glaubensobeerhaupt
+	#trigger = {}
+
+	immediate = {
+		
+	}
+
+	# gold
+	option = {
+		name = indulgence.1001.a
+		add_character_flag = {
+			flag = gold_indulgence
+			days = 100
+		}
+	}
+
+	# prestige
+	option = {
+		name = indulgence.1001.b
+		add_character_flag = {
+			flag = prestige_indulgence
+			days = 100
+		}
+	}
+}
